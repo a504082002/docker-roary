@@ -7,5 +7,7 @@ RUN apt-get update -qq && \
 						roary && \
 	rm -rf /var/lib/apt/lists/*
 
+ADD cmd.py /program/cmd.py
+
 WORKDIR /data
 CMD ["bash"]
