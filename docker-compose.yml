@@ -17,8 +17,6 @@ services:
 
     roary:
         image: a504082002/roary:celery
-        volumes:
-            - .:/app
         links:
             - rabbit:my-rabbit
             - redis:my-redis
@@ -29,7 +27,6 @@ services:
     test:
         image: a504082002/roary:celery
         volumes:
-            - .:/app
             - ./input:/input
             - ./output:/output
         links:
