@@ -11,10 +11,10 @@ RUN apt-get update -qq && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install celery
-ADD requirements.txt /app/requirements.txt
-ADD ./app/ /app/
-WORKDIR /app/
-RUN pip3 install -r requirements.txt
+ADD requirements.txt /roaryapp/requirements.txt
+ADD ./roaryapp/ /roaryapp/
+WORKDIR /
+RUN pip3 install -r /roaryapp/requirements.txt
 
 RUN mkdir /input && mkdir /output
-ENTRYPOINT celery worker --app=app.celeryapp.app -l info
+ENTRYPOINT celery worker --app=roaryapp.celeryapp.app -l info

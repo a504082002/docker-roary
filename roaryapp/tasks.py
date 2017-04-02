@@ -1,4 +1,4 @@
-from app.celeryapp import app
+from roaryapp.celeryapp import app
 import os
 import os.path
 
@@ -21,13 +21,13 @@ def roary(uploads, ident_min, threads):
     args = list()
     args.append(("-p", threads))
     args.append(("-i", ident_min))
-    args.append(("-f", os.path.join(output_dir, "roary")))
-    cmd = format_cmd("roary", args, os.path.join("/input", "*.gff"))
+    args.append(("-f", os.path.join(output_dir, "roaryapp")))
+    cmd = format_cmd("roaryapp", args, os.path.join("/input", "*.gff"))
     os.system(cmd)
 
     # read results for return
     target_file = "gene_presence_absence.csv"
-    with open(os.path.join(output_dir, "roary", target_file), "r") as f:
+    with open(os.path.join(output_dir, "roaryapp", target_file), "r") as f:
         file = f.read()
 
     # clean up folder and return

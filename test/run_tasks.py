@@ -1,4 +1,4 @@
-from app.tasks import roary
+from roaryapp.tasks import roary
 import os
 import time
 

@@ -27,6 +27,8 @@ services:
     test:
         image: a504082002/roary:celery
         volumes:
+            - ./roaryapp:/roaryapp
+            - ./test:/test
             - ./input:/input
             - ./output:/output
         links:
@@ -37,5 +39,5 @@ services:
             - roary
         entrypoint:
             - python3
-            - run_tasks.py
+            - /test/run_tasks.py
             
